@@ -15,15 +15,14 @@ Official repository for **"UNICBench: UNIfied Counting Benchmark for MLLM"**.
 
 ## 🔍 Abstract
 
-Counting is a core capability of multimodal large language models (MLLMs), yet there remains a lack of unified counting datasets for rigorous evaluation across image, text, and audio modalities. We present UNICBench, a unified multi-modal, multi-level counting benchmark and evaluation toolkit with accurate ground-truth labels, deterministic numerical parsing, and hierarchical reporting capabilities. The corpus contains 5,300 images (5,508 QA pairs), 872 documents (5,888 QA pairs), and 2,069 audio clips (2,905 QA pairs), annotated with a three-level capability taxonomy and difficulty labels. Under a standardized protocol with fixed data splits, prompts, random seeds, and modality-specific matching rules, we evaluate 45 state-of-the-art MLLMs across modalities. Results show that models perform strongly on some basic counting tasks but exhibit significant gaps in reasoning tasks and the most challenging data splits, highlighting long-tail errors and substantial room for improving general counting capabilities. UNICBench provides a rigorous and comparable foundation for measurement and offers a public toolkit to accelerate research progress.
-
+Counting is a core capability for multimodal large language models (MLLMs), yet there is no unified counting dataset to rigorously evaluate this ability across image, text, and audio. We present UNICBench, a unified multimodal, multi level counting benchmark and evaluation toolkit with accurate ground truth, deterministic numeric parsing, and stratified reporting. The corpus comprises 5,300 images (5,508 QA), 872 documents (5,888 QA), and 2,069 audio clips (2,905 QA), annotated with a three level capability taxonomy and difficulty tags. Under a standardized protocol with fixed splits/prompts/seeds and modality specific matching rules, we evaluate 45 state-of-the-art MLLMs across modalities. Results show strong performance on some basic counting tasks but significant gaps on reasoning and the hardest partitions, highlighting long-tail errors and substantial headroom for improving general counting. UNICBench offers a rigorous and comparable basis for measurement and a public toolkit to accelerate progress.
 ---
 
 ## 🚀 Quick Links
 
 * 📦 **Dataset**: [HuggingFace](https://huggingface.co/datasets/rongchenggang/UNICBench)
 * 🏆 **Leaderboard**: [Live Leaderboard](https://rongcg5620.github.io/UNICBench-Pages/)
-* 📄 **Paper**: Coming soon on ArXiv
+* 📄 **Paper**: [ArXiv](https://arxiv.org/abs/2603.00595)
 * 📧 **Contact**: unicbench@163.com
 
 ---
