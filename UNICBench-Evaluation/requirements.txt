@@ -1,0 +1,59 @@
+# Core dependencies for Unified Counting Benchmark for MLLM Evaluation Toolkit
+
+# OpenAI API client
+openai>=1.77.0
+
+# Data processing and analysis
+numpy>=2.0.2
+pandas>=2.3.0
+scipy>=1.13.1
+
+# Image processing
+pillow>=11.2.1
+opencv-python-headless>=4.11.0.86
+
+# Audio processing
+librosa>=0.11.0
+soundfile>=0.13.1
+audioread>=3.0.1
+
+# Text processing
+python-docx>=1.2.0
+pdfminer-six>=20250506
+beautifulsoup4>=4.13.4
+lxml>=6.0.0
+
+# Visualization and plotting
+matplotlib>=3.9.4
+seaborn>=0.13.2
+
+# Machine learning utilities
+scikit-learn>=1.6.1
+scikit-image>=0.24.0
+
+# System utilities
+psutil>=7.0.0
+tqdm>=4.67.1
+requests>=2.32.4
+
+# Data validation
+pydantic>=2.11.7
+
+# File format support
+h5py>=3.14.0
+pyyaml>=6.0.2
+
+# Type extensions (fix version conflict)
+typing-extensions>=4.14.0
+
+# Optional: For advanced features
+torch>=2.7.1  # Uncomment if using direct model loading
+torchvision>=0.22.1  # Uncomment if using direct model loading
+torchaudio>=2.7.1  # Uncomment if using direct model loading
+huggingface-hub>=1.5.0  # Uncomment if using HuggingFace models
+selenium>=4.34.0  # Uncomment if using web scraping features
+# 
+# Development dependencies (optional)
+pytest>=6.0.0
+black>=21.0.0
+flake8>=3.9.0

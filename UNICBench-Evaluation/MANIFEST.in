@@ -1,0 +1,12 @@
+include README.md
+include LICENSE
+include requirements.txt
+include requirements-minimal.txt
+include environment.yml
+recursive-include docs *.md
+recursive-include evaluation *.py
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+global-exclude *.log
+global-exclude *.tmp
