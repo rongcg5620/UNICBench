@@ -20,7 +20,7 @@ setup(
     description="Official evaluation toolkit for Unified Counting Benchmark for MLLM",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/rongcg5620/UNICBench",
+    url="https://github.com/rongchenggang/UNICBench",
     packages=find_packages(),
     classifiers=[
         "License :: OSI Approved :: MIT License",

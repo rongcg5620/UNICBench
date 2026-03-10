@@ -9,18 +9,18 @@ This guide provides step-by-step instructions for using the evaluation toolkit t
 #### Option 1: Using pip (Recommended)
 
 ```bash
-git clone https://github.com/your-org/UNICBench-Evaluation.git
-cd UNICBench-Evaluation
+git clone https://github.com/rongchenggang/UNICBench.git
+cd UNICBench/UNICBench-Evaluation
 pip install -r requirements.txt
 ```
 
 #### Option 2: Using conda
 
 ```bash
-git clone https://github.com/your-org/UNICBench-Evaluation.git
-cd UNICBench-Evaluation
+git clone https://github.com/rongchenggang/UNICBench.git
+cd UNICBench/UNICBench-Evaluation
 conda env create -f environment.yml
-conda activate unicbench-evaluation
+conda activate unicbench
 ```
 
 #### Verify Installation
@@ -36,7 +36,7 @@ The test script will verify all dependencies are correctly installed.
 
 Place your UNICBench dataset in one of the following locations (checked in priority order):
 
-**Recommended**: Place alongside the evaluation directory:
+**Recommended**: Download from [HuggingFace](https://huggingface.co/datasets/rongchenggang/UNICBench) and place in the UNICBench directory:
 ```
 UNICBench-Evaluation/
 ├── evaluation/

@@ -1,6 +1,6 @@
 # UNICBench Evaluation Toolkit
 
-Official evaluation toolkit for UNICBench. This folder contains all scripts and tools needed to evaluate models on the UNICBench dataset.
+Official evaluation toolkit for **UNICBench: Unified Counting Benchmark for MLLM**. This toolkit provides comprehensive evaluation scripts and model configurations for testing MLLMs on multimodal counting tasks.
 
 ## 📁 Structure
 
@@ -29,6 +29,20 @@ UNICBench-Evaluation/
 
 ## 🚀 Quick Start
 
+### Prerequisites
+
+Make sure you have downloaded the UNICBench dataset and placed it in the `UNICBench/` directory:
+
+```
+UNICBench-Evaluation/
+└── UNICBench/
+    ├── image/          # Image counting data (49 categories)
+    ├── text/           # Text counting data (12 categories)
+    └── audio/          # Audio counting data (2 categories)
+```
+
+Download from: [HuggingFace Dataset](https://huggingface.co/datasets/rongchenggang/UNICBench)
+
 ### 1. Install Dependencies
 
 ```bash
@@ -40,7 +54,17 @@ conda env create -f environment.yml
 conda activate unicbench
 ```
 
-### 2. Configure Your Model
+### 2. Verify Installation
+
+```bash
+# Test that all imports work correctly
+python evaluation/test_imports.py
+
+# Or run comprehensive setup test
+python test_setup.py
+```
+
+### 3. Configure Your Model
 
 Edit `evaluation/models/models_config.py` to add your API credentials:
 
@@ -59,7 +83,7 @@ AVAILABLE_MODELS = {
 }
 ```
 
-### 3. Run Evaluation
+### 4. Run Evaluation
 
 ```bash
 # Image counting
@@ -102,7 +126,7 @@ results/
 ## 🔧 Supported Models
 
 The toolkit supports 45+ MLLMs including:
-- OpenAI: GPT-4o, GPT-5,
+- OpenAI: GPT-4o, GPT-5, GPT-5-mini
 - Anthropic: Claude-4.5-sonnet
 - Google: Gemini-2.5-pro, Gemini-2.5-flash
 - Open Source: Qwen2.5-VL, InternVL3, GLM-4.5V, DeepSeek-V3.1
@@ -124,4 +148,3 @@ For more help, see the [Evaluation Guide](docs/evaluation_guide.md).
 For issues specific to the evaluation toolkit:
 - Open an issue in the main repository
 - Email: unicbench@163.com
-
