@@ -1,165 +1,126 @@
-# UNICBench-Evaluation
+# UNICBench Evaluation Toolkit
 
-Official evaluation toolkit for Unified Counting Benchmark for MLLM.
+Official evaluation toolkit for UNICBench. This folder contains all scripts and tools needed to evaluate models on the UNICBench dataset.
 
-## Overview
-
-UNICBench-Evaluation provides a comprehensive evaluation framework for multi-modal counting tasks across image, text, and audio modalities. This toolkit enables researchers to evaluate their models on the Unified Counting Benchmark dataset and compare performance with state-of-the-art MLLMs (Multi-modal Large Language Models).
-
-## Features
-
-- 🖼️ **Image Counting**: Evaluate visual counting capabilities across 49 categories
-- 📝 **Text Counting**: Assess text-based counting across 12 categories  
-- 🔊 **Audio Counting**: Test audio counting abilities across 2 categories
-- 🤖 **Multi-Model Support**: Compatible with GPT-4o, Claude, Gemini, and other LLMs
-- 📊 **Comprehensive Analysis**: Built-in metrics, visualization, and comparison tools
-- 🔧 **Easy Integration**: Simple API for adding custom models
-
-## Quick Start
-
-### Installation
-
-#### Option 1: Using pip (Recommended)
-
-```bash
-git clone https://github.com/your-org/UNICBench-Evaluation.git
-cd UNICBench-Evaluation
-pip install -r requirements.txt
-```
-
-#### Option 2: Using conda
-
-```bash
-git clone https://github.com/your-org/UNICBench-Evaluation.git
-cd UNICBench-Evaluation
-conda env create -f environment.yml
-conda activate unicbench-evaluation
-```
-
-#### Verify Installation
-
-```bash
-cd evaluation
-python test_imports.py
-```
-
-If all imports are successful, you're ready to use the toolkit!
-
-### Basic Usage
-
-1. **Configure your model** in `evaluation/models/models_config.py`:
-   ```python
-   "your-model": [
-       {
-           "type": "OPENAI",
-           "base": "https://api.openai.com/v1", 
-           "key": "sk-your-actual-api-key-here",
-           "model": "gpt-4o",
-           "max_tokens": 4096,
-           "temperature": 0.0
-       }
-   ]
-   ```
-
-2. **Run evaluation**:
-   ```bash
-   # Image counting
-   python evaluation/run_image_counting.py
-   
-   # Text counting  
-   python evaluation/run_text_counting.py
-   
-   # Audio counting
-   python evaluation/run_audio_counting.py
-   ```
-
-3. **View results**: Results are automatically saved with comprehensive metrics and can be analyzed using the built-in evaluation reports.
-
-## Directory Structure
+## 📁 Structure
 
 ```
 UNICBench-Evaluation/
-├── README.md                    # This file
-├── requirements.txt             # Dependencies
-├── docs/                        # Documentation
-│   ├── evaluation_guide.md      # Detailed evaluation guide
-│   ├── model_config_guide.md    # Model configuration guide
-│   ├── label_format.md          # Label format specification
-│   ├── dataset_overview.md      # Dataset overview
-│   └── result_format.md         # Result format specification
-├── evaluation/                  # Core evaluation code
-│   ├── run_image_counting.py    # Image evaluation script
-│   ├── run_text_counting.py     # Text evaluation script
-│   ├── run_audio_counting.py    # Audio evaluation script
-│   ├── evaluators/              # Evaluator implementations
-│   ├── models/                  # Model interfaces and configs
-│   └── utils/                   # Utility functions
+├── UNICBench/              # Dataset directory
+│   ├── image/
+│   ├── text/
+│   └── audio/
+├── evaluation/              # Core evaluation scripts
+│   ├── run_image_counting.py
+│   ├── run_text_counting.py
+│   ├── run_audio_counting.py
+│   ├── test_imports.py
+│   ├── models/             # Model configurations
+│   ├── evaluators/         # Evaluation logic
+│   └── utils/              # Utility functions
+├── docs/                   # Documentation
+│   ├── evaluation_guide.md
+│   ├── model_config_guide.md
+│   └── label_format.md
+├── requirements.txt        # Python dependencies
+├── environment.yml         # Conda environment
+└── setup.py               # Installation script
 ```
 
-## Evaluation Metrics
+## 🚀 Quick Start
 
-The toolkit provides comprehensive evaluation metrics:
+### 1. Install Dependencies
 
-- **RMSE**: Root Mean Square Error
-- **MAE**: Mean Absolute Error  
-- **ACC**: Accuracy (exact match)
-- **Processing Time**: Average response time
-- **Token Usage**: Input/output token statistics
+```bash
+# From the UNICBench-Evaluation directory
+pip install -r requirements.txt
 
-## Result Format
+# Or use conda
+conda env create -f environment.yml
+conda activate unicbench
+```
 
-Evaluation results are saved in JSON format with the following structure:
+### 2. Configure Your Model
 
-```json
-{
-    "gt_num": 15,                    // Ground truth count
-    "pred_num": 14,                  // Model prediction
-    "input_token": 1250,             // Input tokens used
-    "output_token": 45,              // Output tokens generated
-    "raw_response": "{...}", // Full model response
-    "error_type": null,              // Error classification (if any)
-    "label_path": "apples/001_label.json",
-    "question_id": 1,
-    "question": "How many apples are in the image?"
+Edit `evaluation/models/models_config.py` to add your API credentials:
+
+```python
+AVAILABLE_MODELS = {
+    "your-model": [
+        {
+            "type": "OPENAI",
+            "base": "https://api.openai.com/v1",
+            "key": "sk-your-api-key-here",
+            "engine": "gpt-4o",
+            "max_tokens": 4096,
+            "temperature": 0.0
+        }
+    ]
 }
 ```
 
-## Supported Models
+### 3. Run Evaluation
 
-Currently supported model APIs:
-- OpenAI GPT-4o/GPT-4o-mini
-- Anthropic Claude
-- Google Gemini
-- Azure OpenAI
-- Custom API endpoints
+```bash
+# Image counting
+python evaluation/run_image_counting.py
 
-## Documentation
+# Text counting
+python evaluation/run_text_counting.py
 
-- [Evaluation Guide](docs/evaluation_guide.md) - Complete usage instructions
-- [Model Configuration](docs/model_config_guide.md) - How to configure your models
-- [Label Format](docs/label_format.md) - Dataset annotation format reference
-
-## Citation
-
-If you use UNICBench-Evaluation in your research, please cite:
-
-```bibtex
-@article{unicbench2024,
-  title={Unified Counting Benchmark for MLLM},
-  author={Your Name and Others},
-  journal={arXiv preprint arXiv:2024.xxxxx},
-  year={2024}
-}
+# Audio counting
+python evaluation/run_audio_counting.py
 ```
 
-## License
+The scripts will interactively guide you through:
+- Model selection
+- Category selection
+- Task configuration
+- Resume options
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 📊 Results
 
-## Contributing
+Evaluation results are saved in `evaluation/results/` with the following structure:
 
-We welcome contributions! Please see our contributing guidelines for details.
+```
+results/
+├── image_results/
+│   └── {model_name}/
+│       └── {timestamp}_{categories}/
+│           ├── {category}_results/
+│           └── image_counting_report.json
+├── text_results/
+└── audio_results/
+```
 
-## Contact
+## 📚 Documentation
 
-For questions and support, please contact: [contact@unicbench.org]
+- **[Evaluation Guide](docs/evaluation_guide.md)**: Complete evaluation workflow
+- **[Model Configuration](docs/model_config_guide.md)**: How to add and configure models
+- **[Label Format](docs/label_format.md)**: Dataset annotation format
+
+## 🔧 Supported Models
+
+The toolkit supports 45+ MLLMs including:
+- OpenAI: GPT-4o, GPT-5, GPT-5-mini
+- Anthropic: Claude-4.5-sonnet
+- Google: Gemini-2.5-pro, Gemini-2.5-flash
+- Open Source: Qwen2.5-VL, InternVL3, GLM-4.5V, DeepSeek-V3.1
+
+See [docs/model_config_guide.md](docs/model_config_guide.md) for the complete list.
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Import errors**: Run `python evaluation/test_imports.py` to verify installation
+2. **API errors**: Check your API keys in `models_config.py`
+3. **Data not found**: Ensure dataset is in `UNICBench/` directory
+
+For more help, see the [Evaluation Guide](docs/evaluation_guide.md).
+
+## 📮 Contact
+
+For issues specific to the evaluation toolkit:
+- Open an issue in the main repository
+- Email: unicbench@163.com
