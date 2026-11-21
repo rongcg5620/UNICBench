@@ -54,16 +54,27 @@ cd UNICBench
 
 ### 2. Download Dataset
 
-Download the dataset from [HuggingFace](https://huggingface.co/datasets/rongchenggang/UNICBench) and place it in `UNICBench-Evaluation/UNICBench/`:
+Download the modalities you want to evaluate from the [UNICBench files on Hugging Face](https://huggingface.co/datasets/rongchenggang/UNICBench/tree/main). The Hugging Face viewer does not support the legacy dataset loader, but you can download files directly from the Files tab or with the CLI.
+
+From the root of this repository, run the following with the [Hugging Face CLI](https://huggingface.co/docs/huggingface_hub/guides/cli#hf-download). This example downloads only the image data and places it where the evaluation toolkit expects it:
 
 ```bash
-# The dataset should be organized as:
+hf download rongchenggang/UNICBench --repo-type dataset --include "image/*" --local-dir UNICBench-Evaluation/UNICBench
+```
+
+For text or audio evaluation, run the same command with `text/*` or `audio/*`, respectively. Append `--dry-run` to check which files will be downloaded and how much space they require.
+
+If downloading manually, keep each modality's subfolders intact under `UNICBench-Evaluation/UNICBench/`:
+
+```text
 UNICBench-Evaluation/
 └── UNICBench/
-    ├── image/          # Image counting data (49 categories)
-    ├── text/           # Text counting data (12 categories)  
-    └── audio/          # Audio counting data (2 categories)
+    ├── image/
+    ├── text/
+    └── audio/
 ```
+
+Only the directories for the modalities you evaluate are required.
 
 ### 3. Install Dependencies
 
